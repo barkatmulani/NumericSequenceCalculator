@@ -1,0 +1,38 @@
+﻿@model NumericSequenceCalculator.Models.Sequence
+@{
+    ViewBag.Title = "Numeric Sequence Calculator";
+}
+
+<header>
+    <h1>@ViewBag.Title</h1>
+    <script type="text/javascript">
+        function validate() {
+            n = document.getElementById('number1').value;
+            if ((n % 1 != 0) || (n <= 0)) {
+                alert('Only Positive Whole Numbers allowed');
+                return false;
+            }
+            else
+                return true;
+        }
+        //$(document).ready(function() {
+        //    $("#Calculate").click(function(e) {
+        //        $("number1")
+        //    })
+        //}
+    </script>
+</header>
+
+<form action="/Home/index" method="post" class="clearfix">
+    <div id="main-content">
+        <input id="number1" name="number" type="text" />&nbsp;<span id="errmsg"></span>
+        <br />
+        <input id="Calculate" type="submit" value="Calcuate Sequences" onclick="return validate();" />
+        <br/><br />
+        Sequence 1: @Model.Sequence_01<br /><br />
+        Sequence 2: @Model.Sequence_02<br /><br />
+        Sequence 3: @Model.Sequence_03<br /><br />
+        Sequence 4: @Model.Sequence_04<br /><br />
+        Sequence 5: @Model.Sequence_05<br /><br />
+    </div>
+</form>
